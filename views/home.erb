@@ -1,0 +1,31 @@
+<section id="explore">
+  <div class="row">
+    <div class="span16">
+      <% unless signed_in? %>
+        <h3>Sign in first to explore the provider's API</h3>
+        <p><a href="/sign_in" class="btn primary">Sign in with OAuth 2 provider »</a></p>
+      <% end %>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="row">
+    <div class="span16">
+      <% if signed_in? %>
+        <h2>Explore the API</h2>
+
+        <div class="well">
+          <a href="/explore/images" class="btn" data-explore>My Images</a>
+          <a href="/upload" class="btn">Upload</a>
+          <a href="/delete" class="btn">Delete image</a>
+          <a href="/sign_out" class="btn primary">Sign out</a>
+        </div>
+
+        <p>Your access token: <code><%= session[:access_token] %></code></p>
+
+        <p><pre id="display-json">Select one of the api methods above</pre></p>
+      <% end %>
+    </div>
+  </div>
+</section>
